@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>Edit Data</title>
+</head>
+<body>
+<div class="container">
+<div class="mt-2">
+<div class="text-center">
+<h1>EDIT STUDENT DATA</h1>
+</div>
+
+<form action="#" th:action="@{'/save/'}" th:object=${editabledata} method="post"> <!-- CASE 2 : th:action ="@{'/editsave/'}" -->
+<input type="hidden" th:field="${editabledata.id}" id="id">
+ 
+<div class="form-group">
+<label class="form-label">Student Name : </label>
+<input type="text" th:field="*{student_name}" class="form-control"/>
+</div>
+
+
+<div class="form-group">
+<label class="form-label">Course Name : </label>
+<input type="text" th:field="*{course}" class="form-control" />
+</div>
+
+<div class="form-group">
+<label class="form-label">Fee Details : </label>
+<input type="text" th:field="*{fee}" class="form-control"/>
+</div>
+
+<br>
+<button type="submit" class="btn-primary">Submit</button>
+
+
+</form>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>Index Page</title>
+</head>
+<body>
+<div class="container">
+<div class="mt-2">
+<div class=text-center><h1>Student CRUD Management</h1></div>
+<br><br>
+<div>
+<a th:href="@{'/new'}" class="btn btn-primary">Add New Data</a>
+</div>
+<br>
+<table class="table table-bordered">
+<thead class="thead-dark">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Fee</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="student:${list_student}">
+<td th:text="${student.id}">ID</td>
+<td th:text="${student.student_name}">Name</td>
+<td th:text="${student.course}">Course</td>
+<td th:text="${student.fee}">Fee</td>
+<td>
+<a th:href="@{'/edit/'+${student.id}}">Edit</a>
+</td>
+<td >
+<a th:href="@{'/delete/'+${student.id}}">Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
